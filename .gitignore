@@ -1,0 +1,17 @@
+# homework exe
+homework
+
+#object files
+*.o
+*.ko
+*.obj
+*.elf
+*.d
+*.idea/
+*cmake-build-debug/
+CMakeLists.txt
+/docs
+.swp
+*.iml
+out/
+

@@ -1,10 +1,14 @@
 
+import java.util.*;
+import com.budhash.cliche.Command;
+
 public class list {
 	
 	/**
 	 * View currently active tasks - lists the task IDs, labels, create dates, and due
 	 * dates (if assigned).
 	 */
+	@Command
 	public void viewActivetasks() {
 		
 	}
@@ -14,6 +18,7 @@ public class list {
 	 * @param task
 	 * @param taskID
 	 */
+	@Command
 	public void addNewTask(String task, int taskID) {
 		
 	}
@@ -23,6 +28,7 @@ public class list {
 	 * @param taskID
 	 * @param dueDate
 	 */
+	@Command
 	public void addDueDate(int taskID, String dueDate) {
 		
 	}
@@ -33,6 +39,7 @@ public class list {
 	 * @param tag
 	 * @param tagList
 	 */
+	@Command
 	public void addTag(int taskID, String tag, String[] tagList) {
 		
 	}
@@ -41,6 +48,7 @@ public class list {
 	 * Mark tasks as completed.
 	 * @param taskID
 	 */
+	@Command
 	public void finishTask(int taskID) {
 		
 	}
@@ -49,6 +57,7 @@ public class list {
 	 * Mark tasks as cancelled.
 	 * @param taskID
 	 */
+	@Command
 	public void cancelTask(int taskID) {
 		
 	}
@@ -57,6 +66,7 @@ public class list {
 	 * Show details for a certain task.
 	 * @param taskID
 	 */
+	@Command
 	public void showTaskDetails(int taskID) {
 		
 	}
@@ -65,6 +75,7 @@ public class list {
 	 * Show active tasks that are associated with a certain tag.
 	 * @param label
 	 */
+	@Command
 	public void showActiveTag(String label) {
 		
 	}
@@ -73,6 +84,7 @@ public class list {
 	 * Show completed tasks that are associated with a certain tag.
 	 * @param label
 	 */
+	@Command
 	public void showCompletedTag (String label) {
 		
 	}
@@ -80,6 +92,7 @@ public class list {
 	/**
 	 * Show tasks that are overdue.
 	 */
+	@Command
 	public void viewOverdueTasks() {
 		
 	}
@@ -87,6 +100,7 @@ public class list {
 	/**
 	 * Shows tasks that are due today, or due in the next three days
 	 */
+	@Command
 	public void isItDue() {
 		
 	}
@@ -96,6 +110,7 @@ public class list {
 	 * @param taskID
 	 * @param newName
 	 */
+	@Command
 	public void renameTask(int taskID, String newName) {
 		
 	}
@@ -105,11 +120,13 @@ public class list {
 	 * in their label.
 	 * @param keyword
 	 */
+	@Command
 	public void searchByKeyword(String keyword) {
 		
 	}
 	
-	public void main (String[] args) {
+	@Command
+	public static void main (String[] args) {
 		
 	}
 }
