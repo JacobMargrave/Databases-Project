@@ -37,12 +37,13 @@ public class List {
 	@Command
 	public void add(@Param(name = "taskLabel", description = "task label") String...taskLabel) throws SQLException {
 
+		int id = -1;
 		String task = "";
+
 		for (String s : taskLabel) {
 			task+=s;
 			task+=" ";
 		}
-
 		task.trim();
 
 		try {
@@ -59,9 +60,14 @@ public class List {
 			ResultSet resultSet = stmt.executeQuery(taskID);
 
 			if (resultSet.next()){
-//				System.out.println("Add " + task);
-				System.out.println("Task ID: " + resultSet.getInt(1));
+				id = resultSet.getInt(1);
+
 			}
+
+			String taskStatus = "INSERT INTO ToDoList.task_status (task_id, status_value, status_state) VALUES ('"+ id +"','incomplete', 'active')";
+			stmt.executeUpdate(taskStatus);
+
+			System.out.println("Task ID: " + id);
 
 			con.commit();
 //			con.setAutoCommit(true);
@@ -88,9 +94,9 @@ public class List {
 
 				stmt = con.createStatement();
 
-				String insertTask = "UPDATE ToDoList.task SET task_due_date = '"+ dueDate +"' WHERE task_id = " + taskID;
+				String updateDueDate = "UPDATE ToDoList.task SET task_due_date = '"+ dueDate +"' WHERE task_id = " + taskID;
 
-				stmt.executeUpdate(insertTask);
+				stmt.executeUpdate(updateDueDate);
 
 				con.commit();
 				System.out.println("Due " + taskID + " " + dueDate);
@@ -112,8 +118,31 @@ public class List {
 	 * @param tag
 	 */
 	@Command
-	public void tag(int taskID, String tag) {
-		System.out.println("Tag " + taskID + " " + tag);
+	public void tag(int taskID, @Param(name = "tag", description = "task tag") String...tag) throws SQLException{
+
+		String taskTag ="";
+
+		try {
+			con.setAutoCommit(false);
+
+			stmt = con.createStatement();
+
+			for (String str : tag) {
+				String insertTag = "INSERT INTO ToDoList.tag (task_id, label) VALUES ('"+ taskID +"','" + str + "')";
+				stmt.executeUpdate(insertTag);
+				taskTag+=str;
+				taskTag+=" ";
+			}
+
+			con.commit();
+//			con.setAutoCommit(true);
+			System.out.println("Tag " + taskID + " " + taskTag.trim());
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+//			con.setAutoCommit(true);
+			con.rollback();
+		}
 	}
 	
 	/**
@@ -183,8 +212,34 @@ public class List {
 	 * @param newName
 	 */
 	@Command
-	public void rename(int taskID, String newName) {
-		System.out.println("Rename " + taskID + " " + newName);
+	public void rename(int taskID, @Param(name = "newName", description = "task name") String...newName) throws  SQLException{
+//		System.out.println("Rename " + taskID + " " + newName);
+
+		String taskName = "";
+		for (String s : newName) {
+			taskName+=s;
+			taskName+=" ";
+		}
+		taskName.trim();
+
+		try {
+			con.setAutoCommit(false);
+
+			stmt = con.createStatement();
+
+			String updateDueDate = "UPDATE ToDoList.task SET task_label = '"+ taskName +"' WHERE task_id = " + taskID;
+
+			stmt.executeUpdate(updateDueDate);
+
+			con.commit();
+			System.out.println("Task rename " + taskID + " " + taskName);
+//			con.setAutoCommit(true);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+//			con.setAutoCommit(true);
+			con.rollback();
+		}
 	}
 	
 	/**
@@ -268,9 +323,9 @@ public class List {
 					");";
 
 			String task_statusTable = "CREATE TABLE task_status (status_id INTEGER PRIMARY KEY AUTO_INCREMENT," +
+					"task_id INTEGER NOT NULL REFERENCES task," +
 					"status_value VARCHAR(200) NOT NULL," +
 					"status_state VARCHAR(200) NOT NULL," +
-					"task_id INTEGER NOT NULL REFERENCES task," +
 					"FOREIGN KEY (task_id) REFERENCES task (task_id)," +
 					"INDEX (task_id)" +
 					");";
@@ -317,7 +372,7 @@ public class List {
 		return false;
 	}
 
-	boolean checkDateFormat(String dueDate){
+	private boolean checkDateFormat(String dueDate){
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
 		try {
