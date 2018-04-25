@@ -2,5 +2,8 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="src" path=""/>
+	<classpathentry kind="lib" path="/home/JacobMargrave/cliche/target/cliche-shell-0.9.9-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/JacobMargrave/DatabaseProject/Databases-Project/lib/mysql-connector-java-5.1.28.jar"/>
+	<classpathentry kind="lib" path="/home/JacobMargrave/DatabaseProject/Databases-Project/lib/jsch-0.1.53.jar"/>
 	<classpathentry kind="output" path=""/>
 </classpath>

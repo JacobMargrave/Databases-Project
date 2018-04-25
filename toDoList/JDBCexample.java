@@ -113,7 +113,7 @@ public class JDBCexample {
 		}
 	}
 	
-	private static Session doSshTunnel( String strSshUser, String strSshPassword, String strSshHost, int nSshPort, String strRemoteHost, int nLocalPort, int nRemotePort ) throws JSchException
+	static Session doSshTunnel( String strSshUser, String strSshPassword, String strSshHost, int nSshPort, String strRemoteHost, int nLocalPort, int nRemotePort ) throws JSchException
 	{
 		/*This is one of the available choices to connect to mysql
 		 * If you think you know another way, you can go ahead*/
