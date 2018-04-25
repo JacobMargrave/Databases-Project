@@ -182,8 +182,27 @@ public class List {
 	 * @param taskID
 	 */
 	@Command
-	public void finish(int taskID) {
-		System.out.println("Finish " + taskID);
+	public void finish(int taskID) throws SQLException {
+//		System.out.println("Finish " + taskID);
+
+		try {
+			con.setAutoCommit(false);
+
+			stmt = con.createStatement();
+
+			String updateDueDate = "UPDATE ToDoList.task_status SET status_value = 'completed' WHERE task_id = " + taskID;
+
+			stmt.executeUpdate(updateDueDate);
+
+			con.commit();
+			System.out.println("Task " + taskID + " is completed");
+//			con.setAutoCommit(true);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+//			con.setAutoCommit(true);
+			con.rollback();
+		}
 	}
 
 	/**
@@ -192,8 +211,27 @@ public class List {
 	 * @param taskID
 	 */
 	@Command
-	public void cancel(int taskID) {
+	public void cancel(int taskID) throws SQLException{
 		System.out.println("Cancel " + taskID);
+
+		try {
+			con.setAutoCommit(false);
+
+			stmt = con.createStatement();
+
+			String updateDueDate = "UPDATE ToDoList.task_status SET status_value = 'cancel', status_state = 'inactive' WHERE task_id = " + taskID;
+
+			stmt.executeUpdate(updateDueDate);
+
+			con.commit();
+			System.out.println("Task " + taskID + " is cancel");
+//			con.setAutoCommit(true);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+//			con.setAutoCommit(true);
+			con.rollback();
+		}
 	}
 
 	/**
@@ -202,8 +240,40 @@ public class List {
 	 * @param taskID
 	 */
 	@Command
-	public void show(int taskID) {
+	public void show(int taskID) throws SQLException{
 		System.out.println("Show " + taskID);
+		boolean resultExist = true;
+		try {
+			con.setAutoCommit(false);
+
+			stmt = con.createStatement();
+
+			String searchTask = "SELECT * FROM ToDoList.task, ToDoList.task_status WHERE task.task_id = " + taskID + "AND" ;
+
+			ResultSet resultSet = stmt.executeQuery(searchTask);
+
+			while (resultSet.next()){
+				resultExist = false;
+				int id = resultSet.getInt("task_id");
+				String label = resultSet.getString("task_label");
+				String date = resultSet.getString("task_due_date");
+				String timeStamp = resultSet.getString("task_create_date");
+
+				System.out.println("ID: " + id + ", Label: " + label + ", Due Date: " + date + ", TimeStamp " + timeStamp);
+			}
+
+			if (resultExist){
+				System.out.println("No task with the ID " + taskID);
+			}
+
+			con.commit();
+//			con.setAutoCommit(true);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+//			con.setAutoCommit(true);
+			con.rollback();
+		}
 	}
 
 	/**
@@ -289,8 +359,6 @@ public class List {
 	@Command
 	public void search(String keyword) throws SQLException{
 		boolean resultExist = true;
-
-		System.out.println("Search " + keyword);
 		try {
 			con.setAutoCommit(false);
 
