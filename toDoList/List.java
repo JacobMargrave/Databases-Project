@@ -282,8 +282,36 @@ public class List {
 	 * @param label
 	 */
 	@Command
-	public void active(String label) {
-		System.out.println("Active " + label);
+	public void active(String label) throws SQLException{
+		boolean existActiveTasks = true;
+		
+		try {
+			con.setAutoCommit(false);
+			stmt = con.createStatement();
+			String showActiveTasks = "SELECT * FROM ToDoList.task, ToDoList.task_status, ToDoList.tag WHERE ToDoList.task.task_ID = ToDoList.task_status.task_id = ToDoList.tag.task_id AND status_state = 'active'"
+					+ "AND label LIKE '%" + label + "%'";
+			ResultSet resultSet = stmt.executeQuery(showActiveTasks);
+			
+			while(resultSet.next()) {
+				
+				existActiveTasks = false;
+				int task_id = resultSet.getInt("task_id");
+				String task_label= resultSet.getString("task_label");
+				String due_date = resultSet.getString("task_due_date");
+				String task_create_date = resultSet.getString("task_create_date");
+				System.out.println("Task ID: " + task_id + ", Label: " + task_label + 
+						", Due Date: " + due_date + ", Task Create Date: " + task_create_date);
+			}
+			if(existActiveTasks) {
+				System.out.println("There are currently no active tasks with label " + label + ".");
+			}
+		}
+		catch(SQLException e){
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+			// con.setAutoCommit(true);
+			con.rollback();
+		}
 	}
 
 	/**

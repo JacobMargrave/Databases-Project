@@ -7,7 +7,7 @@ import com.jcraft.jsch.*;
 public class JDBCexample {
 
 	public static void main(String[] args) throws ClassNotFoundException, JSchException, SQLException {
-<<<<<<< HEAD
+
 		if (args.length<5){
 			System.out.println("Usage DBConnectTest <BroncoUserid> <BroncoPassword> <sandboxUSerID> <sandbox password> <yourportnumber>");
 		}
@@ -130,7 +130,6 @@ public class JDBCexample {
 		session.connect();
 		session.setPortForwardingL(nLocalPort, strRemoteHost, nRemotePort);
 		return session;
-=======
 //		if (args.length<5){
 //			System.out.println("Usage DBConnectTest <BroncoUserid> <BroncoPassword> <sandboxUSerID> <sandbox password> <yourportnumber>");
 //		}
