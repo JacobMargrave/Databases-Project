@@ -39,7 +39,7 @@ public class List {
 				existActiveTasks = false;
 				int task_id = resultSet.getInt("task_id");
 				String task_label= resultSet.getString("task_label");
-				String due_date = resultSet.getString("due_date");
+				String due_date = resultSet.getString("task_due_date");
 				String task_create_date = resultSet.getString("task_create_date");
 				System.out.println("Task ID: " + task_id + ", Label: " + task_label + 
 						", Due Date: " + due_date + ", Task Create Date: " + task_create_date);
