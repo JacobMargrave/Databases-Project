@@ -248,8 +248,41 @@ public class List {
 	 * @param keyword
 	 */
 	@Command
-	public void search(String keyword) {
+	public void search(String keyword) throws SQLException{
+		boolean resultExist = true;
+
 		System.out.println("Search " + keyword);
+		try {
+			con.setAutoCommit(false);
+
+			stmt = con.createStatement();
+
+			String searchTask = "SELECT * FROM ToDoList.task WHERE task_label LIKE '%" + keyword + "%'";
+
+			ResultSet resultSet = stmt.executeQuery(searchTask);
+
+			while (resultSet.next()){
+				resultExist = false;
+				int id = resultSet.getInt("task_id");
+				String label = resultSet.getString("task_label");
+				String date = resultSet.getString("task_due_date");
+				String timeStamp = resultSet.getString("task_create_date");
+
+				System.out.println("ID: " + id + ", Label: " + label + ", Due Date: " + date + ", TimeStamp " + timeStamp);
+			}
+
+			if (resultExist){
+				System.out.println("No task with the keyword " + keyword);
+			}
+
+			con.commit();
+//			con.setAutoCommit(true);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+//			con.setAutoCommit(true);
+			con.rollback();
+		}
 	}
 
 	@Command
