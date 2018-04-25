@@ -248,7 +248,7 @@ public class List {
 
 			stmt = con.createStatement();
 
-			String searchTask = "SELECT * FROM ToDoList.task, ToDoList.task_status WHERE task.task_id = " + taskID + "AND" ;
+			String searchTask = "SELECT * FROM ToDoList.task, ToDoList.task_status WHERE task.task_id = '" + taskID + "'AND task_status.task_id = '" + taskID + "'";
 
 			ResultSet resultSet = stmt.executeQuery(searchTask);
 
@@ -258,8 +258,10 @@ public class List {
 				String label = resultSet.getString("task_label");
 				String date = resultSet.getString("task_due_date");
 				String timeStamp = resultSet.getString("task_create_date");
+				String statusValue = resultSet.getString("status_value");
+				String statusState = resultSet.getString("status_state");
 
-				System.out.println("ID: " + id + ", Label: " + label + ", Due Date: " + date + ", TimeStamp " + timeStamp);
+				System.out.println("ID: " + id + ", Label: " + label + ", Due Date: " + date + ", TimeStamp " + timeStamp + ", Status: " + statusValue + " and " + statusState);
 			}
 
 			if (resultExist){
