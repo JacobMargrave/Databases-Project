@@ -329,7 +329,9 @@ public class List {
 		try {
 			con.setAutoCommit(false);
 			stmt = con.createStatement();
-			String showActiveTasks = "SELECT * FROM ToDoList.task, ToDoList.task_status WHERE ToDoList.task.task_ID = ToDoList.task_status.task_id AND status_value = 'complete'";
+			String showActiveTasks = "SELECT DISTINCT task.task_id, task.task_label, task.task_due_date, task.task_create_date FROM ToDoList.task, ToDoList.task_status, ToDoList.tag WHERE ToDoList.task.task_id = ToDoList.task_status.task_id AND ToDoList.task.task_id = ToDoList.tag.task_id "
+					+ "AND ToDoList.task_status.task_id = ToDoList.tag.task_id AND status_value = 'complete'"
+					+ "AND label LIKE '%" + label + "%'";
 			ResultSet resultSet = stmt.executeQuery(showActiveTasks);
 			
 			while(resultSet.next()) {
@@ -343,7 +345,7 @@ public class List {
 						", Due Date: " + due_date + ", Task Create Date: " + task_create_date);
 			}
 			if(existActiveTasks) {
-				System.out.println("There are currently no completed tasks.");
+				System.out.println("There are currently no completed tasks with label " + label + ".");
 			}
 		}
 		catch(SQLException e){
