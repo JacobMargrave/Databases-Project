@@ -290,7 +290,8 @@ public class List {
 		try {
 			con.setAutoCommit(false);
 			stmt = con.createStatement();
-			String showActiveTasks = "SELECT * FROM ToDoList.task, ToDoList.task_status, ToDoList.tag WHERE ToDoList.task.task_ID = ToDoList.task_status.task_id = ToDoList.tag.task_id AND status_state = 'active'"
+			String showActiveTasks = "SELECT DISTINCT task.task_id, task.task_label, task.task_due_date, task.task_create_date FROM ToDoList.task, ToDoList.task_status, ToDoList.tag WHERE ToDoList.task.task_id = ToDoList.task_status.task_id AND ToDoList.task.task_id = ToDoList.tag.task_id "
+					+ "AND ToDoList.task_status.task_id = ToDoList.tag.task_id AND status_state = 'active'"
 					+ "AND label LIKE '%" + label + "%'";
 			ResultSet resultSet = stmt.executeQuery(showActiveTasks);
 			
@@ -301,7 +302,7 @@ public class List {
 				String task_label= resultSet.getString("task_label");
 				String due_date = resultSet.getString("task_due_date");
 				String task_create_date = resultSet.getString("task_create_date");
-				System.out.println("Task ID: " + task_id + ", Label: " + task_label + 
+				System.out.println("Task ID: " + task_id + ", Label: " + task_label +
 						", Due Date: " + due_date + ", Task Create Date: " + task_create_date);
 			}
 			if(existActiveTasks) {
