@@ -426,7 +426,7 @@ public class List {
 			}
 			case "soon": {
 				showDueTasks = "SELECT * FROM ToDoList.task, ToDoList.task_status WHERE ToDoList.task.task_ID = ToDoList.task_status.task_id "
-						+ "AND status_value = 'incomplete' HAVING DATEDIFF(task_due_date, CURRENT_DATE()) < 4"; break;
+						+ "AND status_value = 'incomplete' AND DATEDIFF(task_due_date, CURRENT_DATE()) < 4 AND DATEDIFF(task_due_date, CURRENT_DATE()) >= 0"; break;
 			}
 			default: break;}
 			ResultSet resultSet = stmt.executeQuery(showDueTasks);
