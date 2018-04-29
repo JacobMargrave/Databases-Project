@@ -28,16 +28,16 @@ CREATE TABLE task_status (
 );
 
 -- BEGIN TABLE task
-insert into task (task_label, task_due_data) values ('CS401 Final Project', '2018-01-05');
-insert into task (task_label, task_due_data) values ('CS410 Final Project', '2018-01-05');
-insert into task (task_label, task_due_data) values ('CS455 Final Project', '2018-01-05');
-insert into task (task_label, task_due_data) values ('CS Final Project', '2018-01-05');
-insert into task (task_label, task_due_data) values ('CS401 Final Project', '2018-01-05');
-insert into task (task_label, task_due_data) values ('CS401 Final Project', '2018-01-05');
-insert into task (task_label, task_due_data) values ('CS401 Final Project', '2018-01-05');
-insert into task (task_label, task_due_data) values ('CS401 Final Project', '2018-01-05');
-insert into task (task_label, task_due_data) values ('CS401 Final Project', '2018-01-05');
-insert into task (task_label, task_due_data) values ('CS401 Final Project', '2018-01-05');
+insert into task (task_label, task_due_date) values ('CS401 Final Project', '2018-04-30');
+insert into task (task_label, task_due_date) values ('CS410 Group Project', '2018-05-05');
+insert into task (task_label, task_due_date) values ('CS455 Team Project', '2018-06-05');
+insert into task (task_label, task_due_date) values ('CS441 Homeowork2-3', '2018-05-25');
+insert into task (task_label, task_due_date) values ('CS455 Homework_2', '2018-05-14');
+insert into task (task_label, task_due_date) values ('CS471 Project_2', '2018-05-25');
+insert into task (task_label, task_due_date) values ('CS481 Group Project', '2018-01-05');
+insert into task (task_label, task_due_date) values ('CS321 Data Structure', '2018-05-03');
+insert into task (task_label, task_due_date) values ('CS354 Class presentation', '2018-05-10');
+insert into task (task_label, task_due_date) values ('CS361 Final Homwork', '2018-05-15');
 
 -- BEGIN TABLE tag
 insert into tag (task_id, label) values (1, 'School Project');

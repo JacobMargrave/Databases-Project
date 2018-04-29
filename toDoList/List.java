@@ -219,7 +219,7 @@ public class List {
 	 */
 	@Command
 	public void cancel(int taskID) throws SQLException {
-		System.out.println("Cancel " + taskID);
+//		System.out.println("Cancel " + taskID);
 
 		try {
 			con.setAutoCommit(false);
@@ -249,7 +249,7 @@ public class List {
 	 */
 	@Command
 	public void show(int taskID) throws SQLException {
-		System.out.println("Show " + taskID);
+//		System.out.println("Show " + taskID);
 		boolean resultExist = true;
 		try {
 			con.setAutoCommit(false);
@@ -376,7 +376,7 @@ public class List {
 	 */
 	@Command
 	public void overdue() throws SQLException {
-		System.out.println("Overdue");
+//		System.out.println("Overdue");
 		boolean existOverDueTasks = true;
 		try {
 			con.setAutoCommit(false);
