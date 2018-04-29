@@ -11,8 +11,8 @@
 This program implements a database-driven to-do list manager in Java that uses a command-line application to create, make changes and/or view certain characteristics of a to-do list where information about each created task, including labels, due dates, etc., are stored in a database that the program automatically creates upon the initial running.  
 
 ## Compiling and Running
-1. Export CLASSPATH: in project directory
-	export CLASSPATH=.:lib/cliche-shell-0.9.9-SNAPSHOT.jar:lib/jsch-0.1.53.jar:lib/mysql-connector-java-5.1.28.jar:$CLASSPATH
+1. Export CLASSPATH: in toDoList directory
+	export CLASSPATH=.:../lib/cliche-shell-0.9.9-SNAPSHOT.jar:../lib/jsch-0.1.53.jar:../lib/mysql-connector-java-5.1.28.jar:$CLASSPATH
 
 2. COMPILE and RUN:
 	javac List.java
