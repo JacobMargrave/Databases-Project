@@ -13,6 +13,10 @@ This program implements a database-driven to-do list manager in Java that uses a
 ### Compiling and Running
 
 ### Program Design
+Due to the complex nature of creating a connection to MYSQL as well as creating shell command templates with Java code written from scratch, we decided to take the easy route and use external libraries provided to us in the project description. These libraries are:
+* 
+*
+*
 
 ### Testing
 
