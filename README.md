@@ -46,3 +46,4 @@ All in all, this project was a great exercise in writing SQL and executing SQL w
 
 The only other real issues we encountered with this program were minute things associated with making sure that each command works the way it was intended. For example, we encountered a bug within the due method that would cause the program to list overdue tasks as tasks that were "due soon" as the result of there being no lower bound in the SQL query's WHERE clause (which calculated a task's condition of being due soon). Luckily, this was an easy problem to fix.
 
+In the end, this project was not as problematic as it could have been, given that we were familar with SQL and we understood what the program needed to do. It was just a matter of putting it into Java syntax.
