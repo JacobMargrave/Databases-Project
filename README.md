@@ -21,6 +21,8 @@ Due to the complex nature of creating a connection to MYSQL as well as creating 
 Together, these libraries enable the easy implementation of the various program commands through the interactive and aid in the connection to the MYSQL database server.
 
 #### The Commands
+The commands that are able to be executed within the program are as follows:
+
 
 ### Testing
 
