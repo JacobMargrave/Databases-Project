@@ -14,9 +14,13 @@ This program implements a database-driven to-do list manager in Java that uses a
 
 ### Program Design
 Due to the complex nature of creating a connection to MYSQL as well as creating shell command templates with Java code written from scratch, we decided to take the easy route and use external executable libraries provided to us in the project description. These libraries are:
-* cliche-shell-0.9.9-SNAPSHOT.jar - used for implementing the various program commands through an interactive shell.
-* jsch-0.1.53.jar - used for 
-* mysql-connector-java-5.1.28.jar - used for connecting to the MYSQL database server.
+* cliche-shell-0.9.9-SNAPSHOT.jar
+* jsch-0.1.53.jar
+* mysql-connector-java-5.1.28.jar
+
+Together, these libraries enable the easy implementation of the various program commands through the interactive and aid in the connection to the MYSQL database server.
+
+#### The Commands
 
 ### Testing
 
