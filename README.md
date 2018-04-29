@@ -21,7 +21,7 @@ Due to the complex nature of creating a connection to MYSQL as well as creating 
 Together, these libraries enable the easy implementation of the various program commands through the interactive and aid in the connection to the MYSQL database server. 
 
 ### The Commands
-One of the main goals for this program was to modify information and obtain certain information quickly by automatically executing SQL code. The commands that are able to be executed within the program to manage the to-do list database, as well as each of their functions, are listed below:
+One of the main goals for this program was to modify information and obtain certain information quickly by automatically executing various SQL operations and queries. The commands that are able to be executed within the program to manage the to-do list database, as well as each of their functions, are listed below:
 * *active* - View currently active tasks - lists the task IDs, labels, create dates, and due dates (if assigned).
 * *add(taskLabel)* - Add new tasks to the list with a given label specified by the user.
 * *due(taskID, dueDate)* - Assigns a due date to a certain task with its ID specified by the user.
