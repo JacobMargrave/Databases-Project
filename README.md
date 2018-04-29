@@ -37,9 +37,9 @@ One of the main goals for this program was to modify information and obtain cert
 * *search(keyword)* - Used for searching for tasks with a certain keyword (e.g. To search for tasks having the word "project" in their label, the user would type *search project*.)
 
 ## Testing
-Testing this program involved plenty of interaction between MYSQL and the command line. For example, for the add command, we would run it within the terminal window and then view the database in MYSQL to see if an changes were made to one of our tables. Once we saw a task added to the table, it was a sure sign that we had implemented the command correctly.
+Testing this program involved plenty of interaction between MYSQL and the command line. Of course, with writing each of the commands for our program, it involved writing concise and correct SQL operations and queries to make sure we received the correct information. In doing so, we were able to obtain information much quicker with our commands then by by manually typing in each query from scratch each time, as well as hone our SQL coding skills in the process. Once we were receiving results that matched our expected results, we double-checked to ensure that we were doing the right thing. 
 
-Of course, with writing each of the commands for our program, it involved writing concise and correct SQL queries to make sure we received the correct information. In doing so, we were able to obtain information much quicker with our commands then by by manually typing in each query from scratch each time, as well as hone our SQL coding skills in the process. 
+For example, for the add command, we would run it within the terminal window and then view the database in MYSQL to see if an changes were made to one of our tables. Once we saw a task added to the table, it was a sure sign that we had implemented the command correctly. We followed this practice of testing for each of our commands until we were satisfied with our results.
 
 ## Discussion
-
+All in all, this project was a great exercise in writing SQL and executing SQL with the quick entering of commands in a shell program. The hardest part for us, in our opinion, was implementing the initial connection to the MYSQL server, as we weren't too sure at first on how to use the provided libraries as well understand the examples. 
