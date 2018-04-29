@@ -8,7 +8,7 @@
 # Databases-Project
 
 ### Overview
-
+This program implements a database-driven to-do list manager in Java that uses a command-line application to create, make changes and/or view certain characteristics of a to-do list where information about each created task, including labels, due dates, etc., are stored in a database that the program automatically creates upon the initial running.  
 
 ### Compiling and Running
 
