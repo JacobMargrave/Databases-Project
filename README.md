@@ -22,7 +22,19 @@ Together, these libraries enable the easy implementation of the various program 
 
 ### The Commands
 The commands that are able to be executed within the program are as follows:
-
+* *active* - View currently active tasks - lists the task IDs, labels, create dates, and due dates (if assigned).
+* *add(taskLabel)* - Add new tasks to the list with a given label specified by the user.
+* *due(taskID, dueDate)* - Assigns a due date to a certain task with its ID specified by the user.
+* *tag(taskID, tag)* - Assigns a tag to a certain task with its specified ID. Think of it as assigning the task to a certain "category" of task.
+* *finish(taskID)* - Marks a certain task as completed.
+* *cancel(taskID)* - Marks a certain task as cancelled.
+* *show(taskID)* - Shows details for a certain task.
+* *active(label)* - Shows all tasks that are associated with a certain tag, or category.
+* *completed(label)* - Shows all completed tasks that are associated with a certain tag, or category.
+* *overdue* - Shows all incomplete tasks with due dates that are overdue.
+* *due(due)* - Shows all imcomplete tasks that are due on the current date, or in the next three days. The user can specify by either typing *due today* or *due soon*.
+* *rename(taskID, newName)* - Changes the name of a certain task.
+* *search(keyword)* - Used for searching for tasks with a certain keyword (e.g. To search for tasks having the word "project" in their label, the user would type *search project*.)
 
 ## Testing
 
