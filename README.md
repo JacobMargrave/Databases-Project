@@ -7,12 +7,12 @@
 
 # Databases-Project
 
-### Overview
+## Overview
 This program implements a database-driven to-do list manager in Java that uses a command-line application to create, make changes and/or view certain characteristics of a to-do list where information about each created task, including labels, due dates, etc., are stored in a database that the program automatically creates upon the initial running.  
 
-### Compiling and Running
+## Compiling and Running
 
-### Program Design
+## Program Design
 Due to the complex nature of creating a connection to MYSQL as well as creating shell command templates with Java code written from scratch, we decided to take the easy route and use external executable libraries provided to us in the project description. These libraries are:
 * cliche-shell-0.9.9-SNAPSHOT.jar
 * jsch-0.1.53.jar
@@ -20,11 +20,11 @@ Due to the complex nature of creating a connection to MYSQL as well as creating 
 
 Together, these libraries enable the easy implementation of the various program commands through the interactive and aid in the connection to the MYSQL database server.
 
-#### The Commands
+### The Commands
 The commands that are able to be executed within the program are as follows:
 
 
-### Testing
+## Testing
 
-### Discussion
+## Discussion
 
