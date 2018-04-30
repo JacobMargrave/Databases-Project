@@ -2,7 +2,7 @@ import java.io.IOException;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+//import java.util.*;
 import com.budhash.cliche.Command;
 import com.budhash.cliche.Param;
 import com.budhash.cliche.Shell;
@@ -709,12 +709,6 @@ public class List {
 
 		Scanner scanner = new Scanner(System.in);
 		
-		//String strSshUser; = args[0]; // SSH loging username
-		//String strSshPassword; = args[1]; // SSH login password
-		//String strDbUser; = args[2]; // database loging username
-		//String strDbPassword; = args[3]; // database login password
-		//String nRemotePort; = args[4]; // remote port number of your database
-		
 		if (args.length < 5) {
 			System.out
 					.println("Usage DBConnectTest <BroncoUserid> <BroncoPassword> <sandboxUSerID> <sandbox password> <yourportnumber>");
@@ -726,11 +720,6 @@ public class List {
 			String strDbPassword = args[3]; // database login password
 			String nRemotePort = args[4]; // remote port number of your database
 			
-			/*System.out.println("Enter your Boise State Username: "); scanner.next(); //strSshUser = args[0];
-			System.out.println("Enter your Boise State Password: "); scanner.next(); //strSshPassword = args[1];
-			System.out.println("Enter your MYSQL Username: "); scanner.next(); //strDbUser = args[2];
-			System.out.println("Enter your MYSQL Password: "); scanner.next(); //strDbPassword = args[3];
-			System.out.println("Enter your Remote Port Number: "); scanner.next(); //nRemotePort = args[4];*/
 
 			List list = new List();
 
