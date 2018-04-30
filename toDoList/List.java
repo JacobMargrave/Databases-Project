@@ -219,7 +219,7 @@ public class List {
 	 */
 	@Command
 	public void cancel(int taskID) throws SQLException {
-//		System.out.println("Cancel " + taskID);
+		// System.out.println("Cancel " + taskID);
 
 		try {
 			con.setAutoCommit(false);
@@ -249,7 +249,7 @@ public class List {
 	 */
 	@Command
 	public void show(int taskID) throws SQLException {
-//		System.out.println("Show " + taskID);
+		// System.out.println("Show " + taskID);
 		boolean resultExist = true;
 		try {
 			con.setAutoCommit(false);
@@ -376,7 +376,7 @@ public class List {
 	 */
 	@Command
 	public void overdue() throws SQLException {
-//		System.out.println("Overdue");
+		// System.out.println("Overdue");
 		boolean existOverDueTasks = true;
 		try {
 			con.setAutoCommit(false);
@@ -422,20 +422,25 @@ public class List {
 			switch (due) {
 			case "today": {
 				showDueTasks = "SELECT * FROM ToDoList.task, ToDoList.task_status WHERE ToDoList.task.task_ID = ToDoList.task_status.task_id "
-						+ "AND status_value = 'incomplete' HAVING task_due_date = CURRENT_DATE()"; break;
+						+ "AND status_value = 'incomplete' HAVING task_due_date = CURRENT_DATE()";
+				break;
 			}
 			case "soon": {
 				showDueTasks = "SELECT * FROM ToDoList.task, ToDoList.task_status WHERE ToDoList.task.task_ID = ToDoList.task_status.task_id "
-						+ "AND status_value = 'incomplete' AND DATEDIFF(task_due_date, CURRENT_DATE()) < 4 AND DATEDIFF(task_due_date, CURRENT_DATE()) >= 0"; break;
+						+ "AND status_value = 'incomplete' AND DATEDIFF(task_due_date, CURRENT_DATE()) < 4 AND DATEDIFF(task_due_date, CURRENT_DATE()) >= 0";
+				break;
 			}
-			default: break;}
+			default:
+				break;
+			}
 			ResultSet resultSet = stmt.executeQuery(showDueTasks);
 			while (resultSet.next()) {
 				existsDueTasks = false;
 				int task_id = resultSet.getInt("task_id");
 				String task_label = resultSet.getString("task_label");
 				String due_date = resultSet.getString("task_due_date");
-				String task_create_date = resultSet.getString("task_create_date");
+				String task_create_date = resultSet
+						.getString("task_create_date");
 				System.out.println("Task ID: " + task_id + ", Label: "
 						+ task_label + ", Due Date: " + due_date
 						+ ", Task Create Date: " + task_create_date);
@@ -444,8 +449,9 @@ public class List {
 				System.out.println("There are no tasks due " + due + ".");
 			}
 		} catch (SQLException e) {
-			System.out.println("The argument '" + due + "' is invalid. Try using either 'today' or 'soon'.");
-			//e.printStackTrace();
+			System.out.println("The argument '" + due
+					+ "' is invalid. Try using either 'today' or 'soon'.");
+			// e.printStackTrace();
 			con.rollback();
 		}
 	}
@@ -704,22 +710,19 @@ public class List {
 	}
 
 	public static void main(String[] args) throws SQLException {
-	
-	if (args.length < 5) {
-
 		Scanner scanner = new Scanner(System.in);
-		
+
 		if (args.length < 5) {
 			System.out
 					.println("Usage DBConnectTest <BroncoUserid> <BroncoPassword> <sandboxUSerID> <sandbox password> <yourportnumber>");
 		} else {
-			
+
 			String strSshUser = args[0]; // SSH loging username
 			String strSshPassword = args[1]; // SSH login password
 			String strDbUser = args[2]; // database loging username
 			String strDbPassword = args[3]; // database login password
-			String nRemotePort = args[4]; // remote port number of your database
-			
+			String nRemotePort = args[4]; // remote port number of your
+											// database
 
 			List list = new List();
 
