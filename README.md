@@ -16,11 +16,11 @@ This program implements a database-driven to-do list manager in Java that uses a
 
 2. COMPILE and RUN:
 	* javac List.java 
-	* java List &lt;BroncoUserid&gt; <BroncoPassword> <sandboxUSerID> <sandbox password> <yourportnumber>
+	* java List &lt;BroncoUserid&gt; &lt;BroncoPassword&gt; &lt;sandboxUSerID&gt; &lt;sandbox password&gt; &lt;yourportnumber&gt;
 
 ### Run using JAR
 1. RUN in Database_Project_jar directory
-	* java -jar Databases-Project2.jar folowed with the same arguments as above.
+	* java -jar Databases-Project2.jar &lt;BroncoUserid&gt; &lt;BroncoPassword&gt; &lt;sandboxUSerID&gt; &lt;sandbox password&gt; &lt;yourportnumber&gt;
 
 ## Program Design
 Due to the complex nature of creating a connection to MYSQL as well as creating shell command templates with Java code written from scratch, we decided to take the easy route and use external executable libraries provided to us in the project description. These libraries are:
