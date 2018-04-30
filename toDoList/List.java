@@ -704,8 +704,8 @@ public class List {
 	}
 
 	public static void main(String[] args) throws SQLException {
-
-		if (args.length < 5) {
+	
+	if (args.length < 5) {
 			System.out
 					.println("Usage DBConnectTest <BroncoUserid> <BroncoPassword> <sandboxUSerID> <sandbox password> <yourportnumber>");
 		} else {
