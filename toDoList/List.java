@@ -710,7 +710,7 @@ public class List {
 	}
 
 	public static void main(String[] args) throws SQLException {
-		Scanner scanner = new Scanner(System.in);
+		//Scanner scanner = new Scanner(System.in);
 
 		if (args.length < 5) {
 			System.out
