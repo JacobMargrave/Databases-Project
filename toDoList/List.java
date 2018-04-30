@@ -551,7 +551,7 @@ public class List {
 		int nSshPort = 22; // remote SSH host port number
 		String strRemoteHost = "localhost"; // hostname or ip of your database
 											// server
-		int nLocalPort = 3367; // local port number use to bind SSH tunnel
+		int nLocalPort = 3368; // local port number use to bind SSH tunnel
 
 		String strDbUser = dbUser; // database loging username
 		String strDbPassword = dbPassword; // database login password
