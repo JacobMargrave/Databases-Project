@@ -16,7 +16,7 @@ This program implements a database-driven to-do list manager in Java that uses a
 
 2. COMPILE and RUN:
 	* javac List.java 
-	* java List &ltBroncoUserid&gt <BroncoPassword> <sandboxUSerID> <sandbox password> <yourportnumber>
+	* java List &lt;BroncoUserid&gt; <BroncoPassword> <sandboxUSerID> <sandbox password> <yourportnumber>
 
 ### Run using JAR
 1. RUN in Database_Project_jar directory
