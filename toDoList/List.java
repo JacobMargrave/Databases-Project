@@ -704,6 +704,9 @@ public class List {
 	}
 
 	public static void main(String[] args) throws SQLException {
+	
+	if (args.length < 5) {
+
 		Scanner scanner = new Scanner(System.in);
 		
 		//String strSshUser; = args[0]; // SSH loging username
